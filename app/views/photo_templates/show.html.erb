@@ -34,7 +34,7 @@
       <input id="browser_image" type="text" name="input_image" placeholder="Enter a URL for the image..." value="<%= @the_photo.image%>">
 
       <label for="browser_caption">Caption</label>
-      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo..." value="<%= @the_photo.caption%>"><%= @the_photo.caption%></textarea>
+      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo..." ><%= @the_photo.caption%></textarea>
 
       <button>Update photo</button>
     </form>
@@ -68,3 +68,15 @@
 </table>
 
 <h3>Add a new comment</h3>
+
+<form action="/add_comment">
+  <label for="photo_id">Photo ID</label>
+  <input id="photo_id" type="integer" name="photo_id" placeholder="<%= @the_photo.id%>" value="<%= @the_photo.id%>">
+
+  <label for="author_id">Author ID</label>
+  <input id="author_id" type="text" name="author_username">
+
+  <label for="owner">Comment</label>
+  <textarea id="owner" type="integer" name="comment_text" placeholder="Enter a comment..."></textarea>
+  <button>Add comment</button>
+</form>

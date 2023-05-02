@@ -22,13 +22,9 @@ class UsersController < ApplicationController
   def add_user 
     input_username = params.fetch("username_add")
 
-    matching_users = User.all
-    last_user = matching_users.order({:id => :desc}).at(0)
-
     new_user = User.new
 
     new_user.username = input_username
-    new_user.id = last_user.id.to_i + 1
 
     new_user.save
 
