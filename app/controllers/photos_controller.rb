@@ -38,4 +38,19 @@ class PhotosController < ApplicationController
     #render({:template => "photo_templates/create.html.erb"})
     redirect_to("/photos/" + new_photo.id.to_s)
   end
+
+  def update
+    the_id = params.fetch("path_username")
+    image_url = params.fetch("input_image")
+    image_caption = params.fetch("input_caption")
+    matching_photo = Photo.where({:id => the_id})
+    the_photo = matching_photo.first
+
+    the_photo.image = image_url
+    the_photo.caption = image_caption
+
+    the_photo.save
+
+    redirect_to("/photos/" + the_photo.id.to_s)
+  end
 end
